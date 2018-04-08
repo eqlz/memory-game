@@ -1,6 +1,7 @@
 /*
  * Create a list that holds all of your cards
  */
+ var allCards = document.getElementsByClassName("card");
 
 
 /*
@@ -24,6 +25,8 @@ function shuffle(array) {
 
     return array;
 }
+
+shuffle(allCards);
 
 
 /*
