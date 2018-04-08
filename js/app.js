@@ -1,8 +1,9 @@
 /*
  * Create a list that holds all of your cards
  */
- var allCards = document.getElementsByClassName("card");
-
+ //var allCards = document.getElementsByClassName("card");
+var allCards = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt",
+                "fa fa-cube", "fa fa-leaf", "fa fa-bicycle", "fa fa-bomb"];
 
 /*
  * Display the cards on the page
@@ -26,7 +27,35 @@ function shuffle(array) {
     return array;
 }
 
-shuffle(allCards);
+function displayCards(array) {
+    var cards = shuffle(allCards);
+
+    var deck = document.getElementsByClassName("deck");
+
+    for (var i = 0; i < cards.length; i++) {
+        // create <li class="card"></li> element
+        var card = document.createElement("li");
+        var att = document.createAttribute("class");
+        att.value = "card";
+        card.setAttributeNode(att);
+
+        // create <i class="<card_name>"></i> element
+        var cardName = document.createElement("i");
+        var attCardName = document.createAttribute("class");
+        attCardName.value = cards[i];
+        cardName.setAttributeNode(attCardName);
+
+        // append <i> into <li>
+        card.appendChild(cardName);
+
+        // append <li> to <ul class="deck">
+        deck.appendChild(card);
+    }
+
+}
+
+displayCards(allCards);
+
 
 
 /*
