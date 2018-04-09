@@ -28,6 +28,11 @@ function shuffle(array) {
 }
 
 function displayCards(array) {
+    /*
+    TODO
+    another way:
+    only change <i>'s attribute, so no need to create <li>, or <i>
+    */
     var cards = shuffle(allCards);
 
     var deck = document.getElementsByClassName("deck");
@@ -68,3 +73,67 @@ displayCards(allCards);
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
+var openCards = [];
+var matchedCards = [];
+
+document.getElementsByClassName("card").addEventListener("click", compareCards);
+
+
+
+function displayCardSymbol(card) {
+    /*
+    TODO:
+    need to add open, show to class, not sure if the following will work
+    */
+    card.setAttribute("class", "card open show");
+    //card.setAttribute("class", "show");
+    openCards.push(card);
+}
+
+function compareCards(openCards) {
+    if (openCards.length == 2) {
+        var card1 = openCards[0];
+        var card2 = openCards[1];
+
+        var card1Symbol = card1.children[0].getAttribute("class");
+        var card2Symbol = card2.children[0].getAttribute("class");
+
+        // if cards match
+        if (card1Symbol == card2Symbol) {
+            card1.setAttribute("class", "card match");
+            card2.setAttribute("class", "card match");
+            matchedCards.push(card1, card2);
+            openCards.pop(card1, card2);
+        } else {
+            card1.setAttribute("class", "card");
+            card2.setAttribute("class", "card");
+            openCards.pop(card1, card2);
+        }
+    }
+    // increment move counter
+    var moveCounter = Number(document.getElementsByClassName("move").innerHTML);
+    document.getElementsByClassName("move").innerHTML = String(moveCounter++);
+
+    // check if all cards have matched
+    if (matchedCards.length == 16) {
+        //TODO
+        // display a message with final score
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
