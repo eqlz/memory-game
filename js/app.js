@@ -119,7 +119,6 @@ function compareCards(openCards) {
         //TODO
         // display a message with final score
     }
-
 }
 
 
