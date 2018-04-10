@@ -27,12 +27,13 @@ function shuffle(array) {
     return array;
 }
 
+//function setCardAttribute()
+/*
 function displayCards(array) {
-    /*
-    TODO
-    another way:
-    only change <i>'s attribute, so no need to create <li>, or <i>
-    */
+    // TODO
+    // another way:
+    // only change <i>'s attribute, so no need to create <li>, or <i>
+    
     var cards = shuffle(allCards);
 
     var deck = document.getElementsByClassName("deck");
@@ -60,7 +61,7 @@ function displayCards(array) {
 }
 
 displayCards(allCards);
-
+*/
 
 
 /*
@@ -76,63 +77,137 @@ displayCards(allCards);
 var openCards = [];
 var matchedCards = [];
 
-document.getElementsByClassName("card").addEventListener("click", compareCards);
+var cardsElement = document.getElementsByClassName("card");
 
+for (var i = 0; i < cardsElement.length; i++) {
+    console.log(cardsElement[i]);
+    cardClickEvent(cardsElement[i]);
+}
 
+function cardClickEvent(card) {
+    card.addEventListener("click", function() {
+        //var self = this;
+
+        displayCardSymbol(this);
+        console.log("displayCardSymbol function")
+
+        addToOpenCards(this);
+        console.log(openCards[0]);
+        console.log(openCards[1]);
+        console.log(openCards.length);
+
+        if (openCards.length > 1) {
+            match = checkCardsMatch(openCards);
+            
+            if (match) {
+                cardsMatch(openCards);
+            }
+
+            if (!match) {
+                cardsNotMatach(openCards);
+            }
+
+            incrementMoves();
+
+            if (matchedCards.length == 16) {
+                alert("cards all matched!");
+            }
+
+            console.log("after checking cards match, open cards should be empty");
+            console.log(openCards.length);
+    }
+        
+        /*function keepCardsOpen() {
+            setTimeOut(checkTwoOpenCards, 1000);   
+        }
+        */
+        
+        
+    })
+}
 
 function displayCardSymbol(card) {
-    /*
-    TODO:
-    need to add open, show to class, not sure if the following will work
-    */
+    // TODO:
+    // need to add open, show to class, not sure if the following will work
     card.setAttribute("class", "card open show");
+    console.log("make card open show")
     //card.setAttribute("class", "show");
+}
+
+function addToOpenCards(card) {
     openCards.push(card);
 }
 
-function compareCards(openCards) {
-    if (openCards.length == 2) {
-        var card1 = openCards[0];
-        var card2 = openCards[1];
-
-        var card1Symbol = card1.children[0].getAttribute("class");
-        var card2Symbol = card2.children[0].getAttribute("class");
-
-        // if cards match
-        if (card1Symbol == card2Symbol) {
-            card1.setAttribute("class", "card match");
-            card2.setAttribute("class", "card match");
-            matchedCards.push(card1, card2);
-            openCards.pop(card1, card2);
-        } else {
-            card1.setAttribute("class", "card");
-            card2.setAttribute("class", "card");
-            openCards.pop(card1, card2);
+/*
+function checkTwoOpenCards() {
+    if (openCards.length > 1) {
+        match = checkCardsMatch(openCards);
+        
+        if (match) {
+            cardsMatch(openCards);
         }
-    }
-    // increment move counter
-    var moveCounter = Number(document.getElementsByClassName("move").innerHTML);
-    document.getElementsByClassName("move").innerHTML = String(moveCounter++);
 
-    // check if all cards have matched
-    if (matchedCards.length == 16) {
-        //TODO
-        // display a message with final score
+        if (!match) {
+            cardsNotMatach(openCards);
+        }
+
+        incrementMoves();
+
+        if (matchedCards.length == 16) {
+            alert("cards all matched!");
+        }
+
+        console.log("after checking cards match, open cards should be empty");
+        console.log(openCards.length);
+    }
+}
+*/
+
+function checkCardsMatch(openCardsArray) {
+    console.log("check if cards match");
+
+    card1 = openCardsArray[0];
+    card2 = openCardsArray[1];
+
+    card1Symbol = card1.children[0].getAttribute("class");
+    card2Symbol = card2.children[0].getAttribute("class");
+
+    if (card1Symbol == card2Symbol) {
+        return true;
+    }  else {
+        return false;
     }
 }
 
+function cardsMatch(openCardsArray) {
+    console.log("when cards match");
+    card1 = openCardsArray[0];
+    card2 = openCardsArray[1];
 
+    card1.setAttribute("class", "card match");
+    card2.setAttribute("class", "card match");
 
+    matchedCards.push(card1, card2);
 
+    openCards.pop(card1);
+    openCards.pop(card2);
+}
 
+function cardsNotMatach(openCardsArray) {
+    console.log("when cards don't match");
+    card1 = openCardsArray[0];
+    card2 = openCardsArray[1];
 
+    card1.setAttribute("class", "card");
+    card2.setAttribute("class", "card");
 
+    openCards.pop(card1);
+    openCards.pop(card2);
+}
 
-
-
-
-
-
-
-
-
+function incrementMoves() {
+    var moveCounterElement = document.getElementsByClassName("moves")[0];
+    var currentMoves = Number(moveCounterElement.innerHTML);
+    currentMoves += 1;
+    moveCounterElement.innerHTML = String(currentMoves);
+}
