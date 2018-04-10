@@ -163,6 +163,8 @@ function checkTwoOpenCards() {
 }
 */
 
+// add the following functions on Apr 9th, 2018
+// to make game logic work
 function checkCardsMatch(openCardsArray) {
     console.log("check if cards match");
 
