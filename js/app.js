@@ -96,6 +96,9 @@ function cardClickEvent(card) {
         console.log(openCards[1]);
         console.log(openCards.length);
 
+        setTimeout(checkTwoOpenCards, 550);
+
+        /*
         if (openCards.length > 1) {
             match = checkCardsMatch(openCards);
             
@@ -115,12 +118,10 @@ function cardClickEvent(card) {
 
             console.log("after checking cards match, open cards should be empty");
             console.log(openCards.length);
-    }
-        
-        /*function keepCardsOpen() {
-            setTimeOut(checkTwoOpenCards, 1000);   
         }
-        */
+        /**/
+        
+        
         
         
     })
@@ -130,7 +131,7 @@ function displayCardSymbol(card) {
     // TODO:
     // need to add open, show to class, not sure if the following will work
     card.setAttribute("class", "card open show");
-    console.log("make card open show")
+    console.log("make card open show");
     //card.setAttribute("class", "show");
 }
 
@@ -139,7 +140,14 @@ function addToOpenCards(card) {
 }
 
 /*
+function keepCardsOpen() {
+    setTimeout(checkTwoOpenCards, 1000);
+}
+/**/
+
+//*
 function checkTwoOpenCards() {
+    console.log("run function checkTwoOpenCards");
     if (openCards.length > 1) {
         match = checkCardsMatch(openCards);
         
@@ -161,7 +169,7 @@ function checkTwoOpenCards() {
         console.log(openCards.length);
     }
 }
-*/
+/**/
 
 // add the following functions on Apr 9th, 2018
 // to make game logic work
@@ -183,6 +191,7 @@ function checkCardsMatch(openCardsArray) {
 
 function cardsMatch(openCardsArray) {
     console.log("when cards match");
+    //*
     card1 = openCardsArray[0];
     card2 = openCardsArray[1];
 
@@ -191,11 +200,14 @@ function cardsMatch(openCardsArray) {
 
     matchedCards.push(card1, card2);
 
-    openCards.pop(card1);
-    openCards.pop(card2);
+    openCardsArray.length = 0;
+    /**/
+
+
 }
 
 function cardsNotMatach(openCardsArray) {
+    /*
     console.log("when cards don't match");
     card1 = openCardsArray[0];
     card2 = openCardsArray[1];
@@ -203,8 +215,15 @@ function cardsNotMatach(openCardsArray) {
     card1.setAttribute("class", "card");
     card2.setAttribute("class", "card");
 
-    openCards.pop(card1);
-    openCards.pop(card2);
+    openCardsArray.pop(card1);
+    openCardsArray.pop(card2);
+    /**/
+
+    console.log("when cards don't match");
+    for (var i = 0; i < openCardsArray.length; i++) {
+        openCardsArray[i].setAttribute("class", "card");       
+    }
+    openCardsArray.length = 0;
 }
 
 function incrementMoves() {
