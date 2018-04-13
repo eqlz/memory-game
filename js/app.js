@@ -3,6 +3,8 @@
  */
  //var allCards = document.getElementsByClassName("card");
 var allCardsSymbol = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt",
+                "fa fa-cube", "fa fa-leaf", "fa fa-bicycle", "fa fa-bomb",
+                "fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt",
                 "fa fa-cube", "fa fa-leaf", "fa fa-bicycle", "fa fa-bomb"];
 
 /*
@@ -29,6 +31,7 @@ function shuffle(array) {
 
 function randomizeCards() {
     var cardsSymbol = shuffle(allCardsSymbol);
+    console.log(cardsSymbol);
     var cardsElement = document.getElementsByClassName("card");
     for (var i = 0; i < cardsSymbol.length; i++) {
         cardsElement[i].children[0].setAttribute("class", cardsSymbol[i]);
@@ -173,10 +176,13 @@ function checkTwoOpenCards() {
 
         incrementMoves();
 
+        /*
         if (matchedCards.length == 16) {
             alert("cards all matched!");
             //displayCards(allCardsSymbol);
         }
+        /**/
+        cardsAllMatched();
 
 
 
@@ -238,6 +244,7 @@ function cardsNotMatach(openCardsArray) {
     for (var i = 0; i < openCardsArray.length; i++) {
         openCardsArray[i].setAttribute("class", "card");       
     }
+    // https://stackoverflow.com/questions/1232040/how-do-i-empty-an-array-in-javascript
     openCardsArray.length = 0;
 }
 
@@ -249,5 +256,8 @@ function incrementMoves() {
 }
 
 function cardsAllMatched() {
-
+    if (matchedCards.length == 16) {
+        alert("cards all matched!");
+        //displayCards(allCardsSymbol);
+    } 
 }
