@@ -2,7 +2,7 @@
  * Create a list that holds all of your cards
  */
  //var allCards = document.getElementsByClassName("card");
-var allCards = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt",
+var allCardsSymbol = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt",
                 "fa fa-cube", "fa fa-leaf", "fa fa-bicycle", "fa fa-bomb"];
 
 /*
@@ -26,6 +26,18 @@ function shuffle(array) {
 
     return array;
 }
+
+function randomizeCards() {
+    var cardsSymbol = shuffle(allCardsSymbol);
+    var cardsElement = document.getElementsByClassName("card");
+    for (var i = 0; i < cardsSymbol.length; i++) {
+        cardsElement[i].children[0].setAttribute("class", cardsSymbol[i]);
+    }
+}
+
+
+var restartElement = document.getElementsByClassName("restart")[0];
+restartElement.addEventListener("click", randomizeCards);
 
 //function setCardAttribute()
 /*
@@ -87,7 +99,7 @@ for (var i = 0; i < cardsElement.length; i++) {
 function cardClickEvent(card) {
     card.addEventListener("click", function() {
         //var self = this;
-
+        //displayCards(allCardsSymbol);
         displayCardSymbol(this);
         console.log("displayCardSymbol function")
 
@@ -163,7 +175,10 @@ function checkTwoOpenCards() {
 
         if (matchedCards.length == 16) {
             alert("cards all matched!");
+            //displayCards(allCardsSymbol);
         }
+
+
 
         console.log("after checking cards match, open cards should be empty");
         console.log(openCards.length);
@@ -231,4 +246,8 @@ function incrementMoves() {
     var currentMoves = Number(moveCounterElement.innerHTML);
     currentMoves += 1;
     moveCounterElement.innerHTML = String(currentMoves);
+}
+
+function cardsAllMatched() {
+
 }
