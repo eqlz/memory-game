@@ -33,7 +33,8 @@ function randomizeCards() {
     var cardsSymbol = shuffle(allCardsSymbol);
     console.log(cardsSymbol);
     var cardsElement = document.getElementsByClassName("card");
-    for (var i = 0; i < cardsSymbol.length; i++) {
+    for (var i = 0; i < cardsElement.length; i++) {
+        cardsElement[i].setAttribute("class", "card");
         cardsElement[i].children[0].setAttribute("class", cardsSymbol[i]);
     }
 }
