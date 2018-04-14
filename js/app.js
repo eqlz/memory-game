@@ -95,6 +95,9 @@ var matchedCards = [];
 
 var cardsElement = document.getElementsByClassName("card");
 
+var moveCounterElement = document.getElementsByClassName("moves")[0];
+var currentMoves = Number(moveCounterElement.innerHTML);
+
 for (var i = 0; i < cardsElement.length; i++) {
     console.log(cardsElement[i]);
     cardClickEvent(cardsElement[i]);
@@ -176,6 +179,9 @@ function checkTwoOpenCards() {
         }
 
         incrementMoves();
+        console.log("current moves are" + currentMoves);
+
+        starRatingChange();
 
         /*
         if (matchedCards.length == 16) {
@@ -250,8 +256,8 @@ function cardsNotMatach(openCardsArray) {
 }
 
 function incrementMoves() {
-    var moveCounterElement = document.getElementsByClassName("moves")[0];
-    var currentMoves = Number(moveCounterElement.innerHTML);
+    //var moveCounterElement = document.getElementsByClassName("moves")[0];
+    //var currentMoves = Number(moveCounterElement.innerHTML);
     currentMoves += 1;
     moveCounterElement.innerHTML = String(currentMoves);
 }
@@ -262,3 +268,19 @@ function cardsAllMatched() {
         //displayCards(allCardsSymbol);
     } 
 }
+
+//*
+function starRatingChange() {
+    var starRatingElement = document.getElementsByClassName("fa fa-star");
+    console.log(starRatingElement);
+    console.log("current moves in starRatingChange function: " + currentMoves);
+    console.log(typeof currentMoves);
+    if ( 16 < currentMoves && currentMoves == 17) {
+        starRatingElement[0].setAttribute("class", "''");
+    }
+
+    if (24 < currentMoves && currentMoves == 25) {
+        starRatingElement[1].setAttribute("class", "''");
+    }
+}
+/**/
