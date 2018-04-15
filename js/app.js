@@ -107,7 +107,7 @@ function cardClickEvent(card) {
     card.addEventListener("click", function() {
         //var self = this;
         //displayCards(allCardsSymbol);
-        timerStart();
+        //timerStart();
         displayCardSymbol(this);
         console.log("displayCardSymbol function")
 
@@ -190,7 +190,7 @@ function checkTwoOpenCards() {
             //displayCards(allCardsSymbol);
         }
         /**/
-        cardsAllMatched();
+        //cardsAllMatched();
 
 
 
@@ -267,6 +267,7 @@ function cardsAllMatched() {
     if (matchedCards.length == 16) {
         alert("cards all matched!");
         //displayCards(allCardsSymbol);
+        //timerStop();
     } 
 }
 
@@ -286,17 +287,29 @@ function starRatingChange() {
 }
 /**/
 
+cardsElement[0].addEventListener("click", timerStart, {once : true});
+
+function zeroPad(val) {
+    return val > 9 ? val : "0" + val;
+}
+
 function timerStart() {
     var minutesElement = document.getElementsByClassName("minutes")[0];
     var secondsElement = document.getElementsByClassName("seconds")[0];
 
     var totalSeconds = 0;
 
-    setInterval(function() {
+    var timerInterval = setInterval(function() {
         totalSeconds++;
         secondsElement.innerHTML = zeroPad(totalSeconds % 60);
         minutesElement.innerHTML = zeroPad(parseInt(totalSeconds / 60, 10));        
     }, 1000);
+
+    //*
+    if (matchedCards == 16) {
+        clearInterval(timerInterval);
+    }
+    /**/
 }
 
 /*
@@ -307,6 +320,10 @@ function incrementTimer() {
 }
 /**/
 
-function zeroPad(val) {
-    return val > 9 ? val : "0" + val;
+
+
+/*
+function timerStop() {
+    clearInterval(timerInterval);
 }
+/**/
