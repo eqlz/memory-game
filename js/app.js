@@ -107,6 +107,7 @@ function cardClickEvent(card) {
     card.addEventListener("click", function() {
         //var self = this;
         //displayCards(allCardsSymbol);
+        timerStart();
         displayCardSymbol(this);
         console.log("displayCardSymbol function")
 
@@ -284,3 +285,28 @@ function starRatingChange() {
     }
 }
 /**/
+
+function timerStart() {
+    var minutesElement = document.getElementsByClassName("minutes")[0];
+    var secondsElement = document.getElementsByClassName("seconds")[0];
+
+    var totalSeconds = 0;
+
+    setInterval(function() {
+        totalSeconds++;
+        secondsElement.innerHTML = zeroPad(totalSeconds % 60);
+        minutesElement.innerHTML = zeroPad(parseInt(totalSeconds / 60, 10));        
+    }, 1000);
+}
+
+/*
+function incrementTimer() {
+    totalSeconds++;
+    secondsElement.innerHTML = zeroPad(totalSeconds % 60);
+    minutesElement.innerHTML = zeroPad(parseInt(totalSeconds / 60, 10));
+}
+/**/
+
+function zeroPad(val) {
+    return val > 9 ? val : "0" + val;
+}
