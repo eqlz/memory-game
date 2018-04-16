@@ -190,7 +190,7 @@ function checkTwoOpenCards() {
             //displayCards(allCardsSymbol);
         }
         /**/
-        //cardsAllMatched();
+        cardsAllMatched();
 
 
 
@@ -265,9 +265,9 @@ function incrementMoves() {
 
 function cardsAllMatched() {
     if (matchedCards.length == 16) {
-        alert("cards all matched!");
+        //alert("cards all matched!");
         //displayCards(allCardsSymbol);
-        //timerStop();
+        timerStop();
     } 
 }
 
@@ -289,6 +289,8 @@ function starRatingChange() {
 
 cardsElement[0].addEventListener("click", timerStart, {once : true});
 
+var timerInterval;
+
 function zeroPad(val) {
     return val > 9 ? val : "0" + val;
 }
@@ -299,13 +301,13 @@ function timerStart() {
 
     var totalSeconds = 0;
 
-    var timerInterval = setInterval(function() {
+    timerInterval = setInterval(function() {
         totalSeconds++;
         secondsElement.innerHTML = zeroPad(totalSeconds % 60);
         minutesElement.innerHTML = zeroPad(parseInt(totalSeconds / 60, 10));        
     }, 1000);
 
-    //*
+    /*
     if (matchedCards == 16) {
         clearInterval(timerInterval);
     }
@@ -322,7 +324,7 @@ function incrementTimer() {
 
 
 
-/*
+//*
 function timerStop() {
     clearInterval(timerInterval);
 }
