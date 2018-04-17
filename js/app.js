@@ -276,9 +276,9 @@ function cardsAllMatched() {
 //*
 function starRatingChange() {
     var starRatingElement = document.getElementsByClassName("fa fa-star");
-    console.log(starRatingElement);
-    console.log("current moves in starRatingChange function: " + currentMoves);
-    console.log(typeof currentMoves);
+    //console.log(starRatingElement);
+    //console.log("current moves in starRatingChange function: " + currentMoves);
+    //console.log(typeof currentMoves);
     if ( 16 < currentMoves && currentMoves == 17) {
         starRatingElement[0].setAttribute("class", "''");
     }
@@ -379,14 +379,29 @@ function timeUsedToMatchCards() {
     secondsUsedElement.innerHTML = secondsElement.innerHTML;
 }
 
+function showFinalStarRating() {
+    var starRatingElement = document.getElementsByClassName("stars")[0].getElementsByClassName("fa fa-star");
+    //var starRatingCopy = starRatingElement;
+
+    var finalStarRatingElement = document.getElementsByClassName("final-star-rating")[0];
+
+    for (var i = 0; i < starRatingElement.length; i++) {
+        var starElement = document.createElement("I");
+        starElement.setAttribute("class", "fa fa-star");
+        finalStarRatingElement.appendChild(starElement);
+    }
+}
+
 function congratulationsPopup() {
 // When the user clicks on the button, open the modal
-    timeUsedToMatchCards(); 
+    timeUsedToMatchCards();
+    showFinalStarRating(); 
     modal.style.display = "block";
 }
 
 btn.onclick = function() {
     timeUsedToMatchCards();
+    showFinalStarRating();
     modal.style.display = "block";
 }
 
