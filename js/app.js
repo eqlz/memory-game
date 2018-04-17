@@ -292,15 +292,14 @@ function starRatingChange() {
 cardsElement[0].addEventListener("click", timerStart, {once : true});
 
 var timerInterval;
+var minutesElement = document.getElementsByClassName("minutes")[0];
+var secondsElement = document.getElementsByClassName("seconds")[0];
 
 function zeroPad(val) {
     return val > 9 ? val : "0" + val;
 }
 
 function timerStart() {
-    var minutesElement = document.getElementsByClassName("minutes")[0];
-    var secondsElement = document.getElementsByClassName("seconds")[0];
-
     var totalSeconds = 0;
 
     timerInterval = setInterval(function() {
@@ -370,11 +369,24 @@ var btn = document.getElementById("myBtn");
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
-var message = document.getElementsByClassName("modal-message")[0];
+//var modalMessageElement = document.getElementsByClassName("modal-message")[0];
 
+function timeUsedToMatchCards() {
+    var minutesUsedElement = document.getElementsByClassName("minutes-used")[0];
+    var secondsUsedElement = document.getElementsByClassName("seconds-used")[0];
+
+    minutesUsedElement.innerHTML = minutesElement.innerHTML;
+    secondsUsedElement.innerHTML = secondsElement.innerHTML;
+}
 
 function congratulationsPopup() {
-// When the user clicks on the button, open the modal 
+// When the user clicks on the button, open the modal
+    timeUsedToMatchCards(); 
+    modal.style.display = "block";
+}
+
+btn.onclick = function() {
+    timeUsedToMatchCards();
     modal.style.display = "block";
 }
 
