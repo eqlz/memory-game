@@ -39,9 +39,11 @@ function randomizeCards() {
     }
 }
 
-
 var restartElement = document.getElementsByClassName("restart")[0];
-restartElement.addEventListener("click", randomizeCards);
+restartElement.addEventListener("click", function() {
+    randomizeCards();
+    resetTimer();
+});
 
 //function setCardAttribute()
 /*
@@ -328,6 +330,12 @@ function timerStop() {
     clearInterval(timerInterval);
 }
 /**/
+
+function resetTimer() {
+    timerStop();
+    minutesElement.innerHTML = "00";
+    secondsElement.innerHTML = "00";   
+}
 
 /*
 function congratulationsPopup() {
