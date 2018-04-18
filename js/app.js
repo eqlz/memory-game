@@ -43,6 +43,8 @@ var restartElement = document.getElementsByClassName("restart")[0];
 restartElement.addEventListener("click", function() {
     randomizeCards();
     resetTimer();
+    resetStarRating();
+    resetMoves();
 });
 
 //function setCardAttribute()
@@ -265,6 +267,11 @@ function incrementMoves() {
     moveCounterElement.innerHTML = String(currentMoves);
 }
 
+function resetMoves() {
+    currentMoves = 0;
+    moveCounterElement.innerHTML = String(currentMoves);
+}
+
 function cardsAllMatched() {
     if (matchedCards.length == 16) {
         //alert("cards all matched!");
@@ -290,6 +297,13 @@ function starRatingChange() {
     }
 }
 /**/
+
+function resetStarRating() {
+    var starRatingElement = document.getElementsByClassName("stars")[0].children;
+    for (var i = 0; i < starRatingElement.length; i++) {
+        starRatingElement[i].children[0].setAttribute("class", "fa fa-star");
+    }
+}
 
 cardsElement[0].addEventListener("click", timerStart, {once : true});
 
