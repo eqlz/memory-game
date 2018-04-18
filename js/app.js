@@ -372,8 +372,8 @@ var span = document.getElementsByClassName("close")[0];
 //var modalMessageElement = document.getElementsByClassName("modal-message")[0];
 
 function timeUsedToMatchCards() {
-    var minutesUsedElement = document.getElementsByClassName("minutes-used")[0];
-    var secondsUsedElement = document.getElementsByClassName("seconds-used")[0];
+    var minutesUsedElement = document.getElementsByClassName("modal-minutes")[0];
+    var secondsUsedElement = document.getElementsByClassName("modal-seconds")[0];
 
     minutesUsedElement.innerHTML = minutesElement.innerHTML;
     secondsUsedElement.innerHTML = secondsElement.innerHTML;
@@ -383,7 +383,7 @@ function showFinalStarRating() {
     var starRatingElement = document.getElementsByClassName("stars")[0].getElementsByClassName("fa fa-star");
     //var starRatingCopy = starRatingElement;
 
-    var finalStarRatingElement = document.getElementsByClassName("final-star-rating")[0];
+    var finalStarRatingElement = document.getElementsByClassName("modal-star-rating")[0];
 
     for (var i = 0; i < starRatingElement.length; i++) {
         var starElement = document.createElement("I");

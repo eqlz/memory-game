@@ -150,3 +150,15 @@ h1 {
     text-decoration: none;
     cursor: pointer;
 }
+
+.modal-message {
+    text-align: center;
+}
+
+.modal-congrats-message {
+    font-size: 30px;
+}
+
+.modal-time, .modal-star-rating, .modal-restart {
+    margin-top: 15px;
+}
