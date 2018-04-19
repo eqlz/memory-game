@@ -42,10 +42,11 @@ function randomizeCards() {
 var restartElement = document.getElementsByClassName("restart")[0];
 restartElement.addEventListener("click", function() {
     randomizeCards();
-    timerReset();
     starRatingReset();
     movesReset();
-    deckElement.addEventListener("click", timerStart, {once: true});
+    timerReset();
+    matchedCardsEmpty();
+    deckElement.addEventListener("click", timerStart, {once: true});   
 });
 
 //function setCardAttribute()
@@ -222,7 +223,9 @@ function cardsAllMatched() {
     } 
 }
 
-
+function matchedCardsEmpty() {
+    matchedCards.length = 0;
+}
 
 //*
 function starRatingChange() {
