@@ -246,7 +246,8 @@ function starRatingReset() {
     }
 }
 
-cardsElement[0].addEventListener("click", timerStart, {once : true});
+var deckElement = document.getElementsByClassName("deck")[0];
+deckElement.addEventListener("click", timerStart, {once : true});
 
 var timerInterval;
 var minutesElement = document.getElementsByClassName("minutes")[0];
@@ -256,9 +257,9 @@ function zeroPad(val) {
     return val > 9 ? val : "0" + val;
 }
 
+
 function timerStart() {
     var totalSeconds = 0;
-
     timerInterval = setInterval(function() {
         totalSeconds++;
         console.log("####################### run timerStart")
