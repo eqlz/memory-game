@@ -45,6 +45,7 @@ restartElement.addEventListener("click", function() {
     timerReset();
     starRatingReset();
     movesReset();
+    deckElement.addEventListener("click", timerStart, {once: true});
 });
 
 //function setCardAttribute()
@@ -188,8 +189,6 @@ function cardsMatch(openCardsArray) {
 
     openCardsArray.length = 0;
     /**/
-
-
 }
 
 function cardsNotMatach(openCardsArray) {
@@ -223,6 +222,8 @@ function cardsAllMatched() {
     } 
 }
 
+
+
 //*
 function starRatingChange() {
     var starRatingElement = document.getElementsByClassName("fa fa-star");
@@ -247,7 +248,7 @@ function starRatingReset() {
 }
 
 var deckElement = document.getElementsByClassName("deck")[0];
-deckElement.addEventListener("click", timerStart, {once : true});
+deckElement.addEventListener("click", timerStart, {once: true});
 
 var timerInterval;
 var minutesElement = document.getElementsByClassName("minutes")[0];
@@ -272,8 +273,8 @@ function timerStop() {
     clearInterval(timerInterval);
 }
 
-function timerManager(flag) {
-    if (flag) {
+function timerManager() {
+    if (timerInterval == undefined) {
         timerStart();
     } else {
         timerStop();
