@@ -1,3 +1,7 @@
+document.addEventListener("DOMContentLoaded", function() {
+    randomizeCards();
+})
+
 var allCardsSymbol = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt",
                 "fa fa-cube", "fa fa-leaf", "fa fa-bicycle", "fa fa-bomb",
                 "fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt",
@@ -238,7 +242,10 @@ window.addEventListener("click", function(event) {
 })
 
 var modalRetartButton = document.getElementsByClassName("modal-restart")[0];
-modalRetartButton.addEventListener("click", gameReset);
+modalRetartButton.addEventListener("click", function() {
+    gameReset();
+    modal.style.display = "none";
+});
 
 function showFinalStarRating() {
     var starRatingElement = document.getElementsByClassName("stars")[0].getElementsByClassName("fa fa-star");
