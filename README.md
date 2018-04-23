@@ -36,3 +36,5 @@ To open all 16 cards, a player needs to make 8 moves.  If a player has a super g
 Between 17 and 24 moves, it means, a player needs at most two rounds of opening all cards to match all cards. 8 moves - one round of opening all cards, another 8 moves - another round of opening all cards, and at last 8 moves to match all cards. In total, 24 moves.  So 2 star.
 
 Beyond 24 moves, it means that a player needs to open all cards more than two rounds, so only 1 star.
+
+This is not how players play this game, but to think in this ways, helps understand how to change star rating based on moves.
