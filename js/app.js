@@ -127,8 +127,7 @@ function movesIncrement() {
 function starRatingChange() {
     var starRatingElement = document.getElementsByClassName("fa fa-star");
     if ( 16 < currentMoves && currentMoves == 17) {
-        //starRatingElement[0].setAttribute("class", "''");
-        starRatingElement[0].style.display = "none";
+        starRatingElement[0].setAttribute("class", "''");
     }
 
     if (24 < currentMoves && currentMoves == 25) {
@@ -168,6 +167,7 @@ function movesReset() {
 }
 
 function starRatingReset() {
+    console.log("reset star rating");
     var starRatingElement = document.getElementsByClassName("stars")[0].children;
     for (var i = 0; i < starRatingElement.length; i++) {
         starRatingElement[i].children[0].setAttribute("class", "fa fa-star");
