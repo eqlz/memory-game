@@ -60,7 +60,7 @@ function addToOpenCards(card) {
     openCards.push(card);
 }
 
-function checkTwoOpenCards()
+function checkTwoOpenCards() {
     if (openCards.length > 1) {
         match = checkCardsMatch(openCards);
         
@@ -127,7 +127,8 @@ function movesIncrement() {
 function starRatingChange() {
     var starRatingElement = document.getElementsByClassName("fa fa-star");
     if ( 16 < currentMoves && currentMoves == 17) {
-        starRatingElement[0].setAttribute("class", "''");
+        //starRatingElement[0].setAttribute("class", "''");
+        starRatingElement[0].style.display = "none";
     }
 
     if (24 < currentMoves && currentMoves == 25) {
