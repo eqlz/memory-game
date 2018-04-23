@@ -31,7 +31,7 @@ Star rating will change in this way:
 
 So, why set it up in this way?
 
-To pen all 16 cards, a play needs to make 8 moves.  If a player has a super good memory, she will remember each card's symbol after only one round of opening all cards. Now she just needs to make another 8 moves to match all cards, based on her memory.  In total 16 moves, thus 3 star.
+To open all 16 cards, a player needs to make 8 moves.  If a player has a super good memory, she will remember each card's symbol after only one round of opening all cards. Now she just needs to make another 8 moves to match all cards, based on her memory.  In total 16 moves, thus 3 star.
 
 Between 17 and 24 moves, it means, a player needs at most two rounds of opening all cards to match all cards. 8 moves - one round of opening all cards, another 8 moves - another round of opening all cards, and at last 8 moves to match all cards. In total, 24 moves.  So 2 star.
 
