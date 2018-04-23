@@ -24,62 +24,49 @@ function shuffle(array) {
 
 function randomizeCards() {
     var cardsSymbol = shuffle(allCardsSymbol);
-    console.log(cardsSymbol);
     var cardsElement = document.getElementsByClassName("card");
     for (var i = 0; i < cardsElement.length; i++) {
+        // Close all cards that have been opened
         cardsElement[i].setAttribute("class", "card");
         cardsElement[i].children[0].setAttribute("class", cardsSymbol[i]);
     }
 }
 
-/*
-Game logic
-*/
+
+// Game logic
 var openCards = [];
 var matchedCards = [];
-
 var cardsElement = document.getElementsByClassName("card");
-
 var moveCounterElement = document.getElementsByClassName("moves")[0];
 var currentMoves = Number(moveCounterElement.innerHTML);
 
 for (var i = 0; i < cardsElement.length; i++) {
-    console.log(cardsElement[i]);
     cardClickEvent(cardsElement[i]);
 }
 
 function cardClickEvent(card) {
     card.addEventListener("click", function() {
         displayCardSymbol(this);
-        console.log("displayCardSymbol function")
-
         addToOpenCards(this);
-        console.log(openCards[0]);
-        console.log(openCards[1]);
-        console.log(openCards.length);
-
         setTimeout(checkTwoOpenCards, 550);        
     })
 }
 
 function displayCardSymbol(card) {
     card.setAttribute("class", "card open show");
-    console.log("make card open show");
 }
 
 function addToOpenCards(card) {
     openCards.push(card);
 }
 
-function checkTwoOpenCards() {
-    console.log("run function checkTwoOpenCards");
+function checkTwoOpenCards()
     if (openCards.length > 1) {
         match = checkCardsMatch(openCards);
         
         if (match) {
             cardsMatch(openCards);
         }
-
         if (!match) {
             cardsNotMatach(openCards);
         }
@@ -91,8 +78,6 @@ function checkTwoOpenCards() {
 }
 
 function checkCardsMatch(openCardsArray) {
-    console.log("check if cards match");
-
     card1 = openCardsArray[0];
     card2 = openCardsArray[1];
 
@@ -107,7 +92,6 @@ function checkCardsMatch(openCardsArray) {
 }
 
 function cardsMatch(openCardsArray) {
-    console.log("when cards match");
     card1 = openCardsArray[0];
     card2 = openCardsArray[1];
 
@@ -120,7 +104,6 @@ function cardsMatch(openCardsArray) {
 }
 
 function cardsNotMatach(openCardsArray) {
-    console.log("when cards don't match");
     for (var i = 0; i < openCardsArray.length; i++) {
         openCardsArray[i].setAttribute("class", "card");       
     }
@@ -134,17 +117,13 @@ function cardsAllMatched() {
     } 
 }
 
-/*
-Increment moves
-*/
+// Increment moves
 function movesIncrement() {
     currentMoves += 1;
     moveCounterElement.innerHTML = String(currentMoves);
 }
 
-/*
-Change star rating as moves increase
-*/
+// Change star rating as moves increase
 function starRatingChange() {
     var starRatingElement = document.getElementsByClassName("fa fa-star");
     if ( 16 < currentMoves && currentMoves == 17) {
@@ -156,9 +135,7 @@ function starRatingChange() {
     }
 }
 
-/*
-Timer starts when first click a card, and timer stops when all cards match 
-*/
+// Timer starts when first click a card, and timer stops when all cards match 
 var deckElement = document.getElementsByClassName("deck")[0];
 var timerInterval;
 var minutesElement = document.getElementsByClassName("minutes")[0];
@@ -183,9 +160,7 @@ function timerStop() {
     clearInterval(timerInterval);
 }
 
-/*
-Restart the game
-*/
+// Restart the game
 function movesReset() {
     currentMoves = 0;
     moveCounterElement.innerHTML = String(currentMoves);
@@ -220,15 +195,12 @@ function gameReset() {
 var restartButtonElement = document.getElementsByClassName("restart")[0];
 restartButtonElement.addEventListener("click", gameReset);
 
-/*
-Congratulations popup
-*/
+// Congratulations popup
 var modal = document.getElementsByClassName('modal')[0];
 
 // Get the button that opens the modal
 var btn = document.getElementById("myBtn");
 
-// Get the <span> element that closes the modal
 var closeButton = document.getElementsByClassName("close")[0];
 closeButton.addEventListener("click", function() {
     modal.style.display = "none";
@@ -273,8 +245,10 @@ function congratulationsPopup() {
     modal.style.display = "block";
 }
 
+/*
 btn.onclick = function() {
     timeUsedToMatchCards();
     showFinalStarRating();
     modal.style.display = "block";
 }
+/**/
