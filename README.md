@@ -20,3 +20,19 @@ The game board consists of 16 cards.  This 16 cards are made up with 8 pairs of 
 Click one card, to flip it open, and then click another to flip it open.  If two cards have the same symbols, then two cards match and they will be kept open.  If two cards have different symbols,  they will be flipped back to being closed.
 
 A palyer's job is to match all cards.  Once all cards match, all of them will be open.
+
+## How Star Rating Changes
+At the beginning of the game, star rating is three.  As moves a player makes increase, star rating will decrease.
+
+Star rating will change in this way:
+* Less or equal to 16 moves, 3 star
+* Between 17 and 24 moves, 2 star
+* Beyond 24 moves, 1 star 
+
+So, why set it up in this way?
+
+To pen all 16 cards, a play needs to make 8 moves.  If a player has a super good memory, she will remember each card's symbol after only one round of opening all cards. Now she just needs to make another 8 moves to match all cards, based on her memory.  In total 16 moves, thus 3 star.
+
+Between 17 and 24 moves, it means, a player needs at most two rounds of opening all cards to match all cards. 8 moves - one round of opening all cards, another 8 moves - another round of opening all cards, and at last 8 moves to match all cards. In total, 24 moves.  So 2 star.
+
+Beyond 24 moves, it means that a player needs to open all cards more than two rounds, so only 1 star.
