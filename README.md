@@ -2,10 +2,11 @@
 Memory game is a simple game to test how good your memory is.  This front-end project is built via JavaScript, HTML, CSS, and Font Awesome provides symbols behind each card.
 
 ## Version
+Version 1.1 - released on Apr 23rd, 2018 with reponsive web design
 Version 1.0 - released on Apr 22nd, 2018
 
 Features to add:
-* Responsive, usable across desktop, tablet, mobile.
+~~* Responsive, usable across desktop, tablet, mobile.~~
 * Add CSS animation, an effect of card flipping over when a card is clicked.
 * Add CSS animations when cards are clicked, unsuccessfully matched, and successfully matched.
 * Implement a leaderboard, store game state using local storage.
