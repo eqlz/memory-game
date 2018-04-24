@@ -3,6 +3,7 @@ Memory game is a simple game to test how good your memory is.  This front-end pr
 
 ## Version
 Version 1.1 - released on Apr 23rd, 2018 with reponsive web design
+
 Version 1.0 - released on Apr 22nd, 2018
 
 Features to add:
