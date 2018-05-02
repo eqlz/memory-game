@@ -33,7 +33,9 @@ function randomizeCards() {
 }
 
 
-// Game logic
+/*
+ * Game logic
+ */ 
 var openCards = [];
 var matchedCards = [];
 var cardsElement = document.getElementsByClassName("card");
@@ -54,6 +56,7 @@ function cardClickEvent(card) {
 
 function displayCardSymbol(card) {
     card.setAttribute("class", "card open show");
+    //card.setAttribute("class", "card open show");
 }
 
 function addToOpenCards(card) {
