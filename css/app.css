@@ -364,4 +364,17 @@ h1 {
         background: #02ccba;
         font-size: 20px;
     }
+
+    .deck .card.unmatch-effect {
+    background: #EF767A;
+    cursor: default;
+    font-size: 20px;
+
+    -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+
+    -webkit-animation: unmatch-shake 0.6s linear 1;
+    animation: unmatch-shake 0.6s linear 1;
+}
 }
