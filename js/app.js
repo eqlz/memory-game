@@ -50,8 +50,10 @@ function cardClickEvent(card) {
     card.addEventListener("click", function() {
         displayCardSymbol(this);
         addToOpenCards(this);
-        setTimeout(checkTwoOpenCards, 550);        
-    })
+        if (openCards.length > 1) {
+            setTimeout(checkTwoOpenCards, 200);       
+        }
+    });
 }
 
 function displayCardSymbol(card) {
@@ -64,20 +66,19 @@ function addToOpenCards(card) {
 }
 
 function checkTwoOpenCards() {
-    if (openCards.length > 1) {
-        match = checkCardsMatch(openCards);
-        
-        if (match) {
-            cardsMatch(openCards);
-        }
-        if (!match) {
-            cardsNotMatach(openCards);
-        }
-
-        movesIncrement();
-        starRatingChange();
-        cardsAllMatched();
+    //console.log("run checkTwoOpenCards")
+    match = checkCardsMatch(openCards);
+    
+    if (match) {
+        cardsMatch(openCards);
     }
+    if (!match) {
+        cardsNotMatach();
+    }
+
+    movesIncrement();
+    starRatingChange();
+    cardsAllMatched();
 }
 
 function checkCardsMatch(openCardsArray) {
@@ -94,6 +95,33 @@ function checkCardsMatch(openCardsArray) {
     }
 }
 
+function cardsNotMatach() {
+    console.log(openCards);
+    for (var i = 0; i < openCards.length; i++) {
+        openCards[i].setAttribute("class", "card unmatch-effect");
+        //*
+     
+        /**/
+        //openCardsArray[i].setAttribute("class", "card");
+               
+    }
+    //console.log(openCardsArray[0]);
+    
+    //for (var i = 0; i < openCardsArray.length; i++) {
+      //  openCardsArray[i].setAttribute("class", "card");
+    //}
+    setTimeout(function() {
+        openCards[0].setAttribute("class", "card");
+        openCards[1].setAttribute("class", "card");
+    }, 1100);
+    
+    console.log("empty openCards");
+    setTimeout(function() {
+        openCards.length = 0;
+    }, 1110);
+    
+}
+
 function cardsMatch(openCardsArray) {
     card1 = openCardsArray[0];
     card2 = openCardsArray[1];
@@ -103,13 +131,6 @@ function cardsMatch(openCardsArray) {
 
     matchedCards.push(card1, card2);
 
-    openCardsArray.length = 0;
-}
-
-function cardsNotMatach(openCardsArray) {
-    for (var i = 0; i < openCardsArray.length; i++) {
-        openCardsArray[i].setAttribute("class", "card");       
-    }
     openCardsArray.length = 0;
 }
 
