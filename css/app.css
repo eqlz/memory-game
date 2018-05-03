@@ -74,9 +74,9 @@ h1 {
     -moz-transform-style: preserve-3d;
     transform-style: preserve-3d;
 
-    -webkit-transition: transform .4s;
-    -moz-transition: transform .4s;
-    transition: transform .4s;
+    -webkit-transition: transform 0.2s;
+    -moz-transition: transform 0.2s;
+    transition: transform 0.2s;
 
     
 }
@@ -107,11 +107,11 @@ h1 {
     -moz-transform: rotateY(0deg);
     transform: rotateY(0deg);
 
-    animation: match-tada 1s linear 1;
+    -webkit-animation: match-tada 0.6s linear 1;
+    animation: match-tada 0.6s linear 1;
 }
 
 .deck .card.unmatch-effect {
-    /*background: #02b3e4;*/
     background: #EF767A;
     cursor: default;
     font-size: 33px;
@@ -120,8 +120,14 @@ h1 {
     -moz-transform: rotateY(0deg);
     transform: rotateY(0deg);
 
-    animation: unmatch-shake 1s linear 1;
+    -webkit-animation: unmatch-shake 0.6s linear 1;
+    animation: unmatch-shake 0.6s linear 1;
 }
+
+/*
+ * Animation when cards unmatch
+ * Source: https://github.com/daneden/animate.css/blob/master/animate.css
+ */
 
 @-webkit-keyframes unmatch-shake {
     from,
@@ -172,6 +178,11 @@ h1 {
         transform: translate3d(10px, 0, 0);
     }
 }
+
+/*
+ * Animation when cards match
+ * Source: https://github.com/daneden/animate.css/blob/master/animate.css
+ */
 
 @-webkit-keyframes match-tada {
     from,
