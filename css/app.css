@@ -262,6 +262,7 @@ h1 {
 .score-panel .stars li {
     list-style: none;
     display: inline-block;
+    color: #FFC53A;
 }
 
 .score-panel .timer {
@@ -366,7 +367,7 @@ h1 {
     }
 
     .deck .card.unmatch-effect {
-    background: #EF767A;
+    background: #ef767a;
     cursor: default;
     font-size: 20px;
 
