@@ -107,8 +107,8 @@ h1 {
     -moz-transform: rotateY(0deg);
     transform: rotateY(0deg);
 
-    -webkit-animation: match-tada 0.6s linear 1;
-    animation: match-tada 0.6s linear 1;
+    -webkit-animation: match-tada 1s linear 1;
+    animation: match-tada 1s linear 1;
 }
 
 .deck .card.unmatch-effect {
@@ -120,8 +120,8 @@ h1 {
     -moz-transform: rotateY(0deg);
     transform: rotateY(0deg);
 
-    -webkit-animation: unmatch-shake 0.6s linear 1;
-    animation: unmatch-shake 0.6s linear 1;
+    -webkit-animation: unmatch-shake 1s linear 1;
+    animation: unmatch-shake 1s linear 1;
 }
 
 /*
@@ -374,7 +374,7 @@ h1 {
     -moz-transform: rotateY(0deg);
     transform: rotateY(0deg);
 
-    -webkit-animation: unmatch-shake 0.6s linear 1;
-    animation: unmatch-shake 0.6s linear 1;
+    -webkit-animation: unmatch-shake 1s linear 1;
+    animation: unmatch-shake 1s linear 1;
 }
 }

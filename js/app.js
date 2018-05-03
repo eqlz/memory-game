@@ -38,6 +38,7 @@ function shuffle(array) {
 /*
  * Game logic
  */
+var twoCardsOpen = false;
 var openCards = [];
 var matchedCards = [];
 var cardsElement = document.getElementsByClassName("card");
@@ -50,10 +51,14 @@ for (var i = 0; i < cardsElement.length; i++) {
 
 function cardClickEvent(card) {
     card.addEventListener("click", function() {
-        card.setAttribute("class", "card open show");
-        openCards.push(card);
-        if (openCards.length > 1) {
-            setTimeout(checkTwoOpenCards, 300);       
+        if (!twoCardsOpen) {
+            this.setAttribute("class", "card open show");
+            openCards.push(this);
+            
+            if (openCards.length > 1) {
+                twoCardsOpen = true;
+                setTimeout(checkTwoOpenCards, 300);       
+            }
         }
     });
 }
@@ -84,7 +89,8 @@ function cardsMatch(card1, card2) {
 
     setTimeout(function() {
         openCards.length = 0;
-    }, 601); // It takes 0.6s to finish css match-tada effect
+        twoCardsOpen = false;
+    }, 1100); // It takes 1s to finish css match-tada effect
 }
 
 function cardsNotMatach(card1, card2) {
@@ -94,11 +100,12 @@ function cardsNotMatach(card1, card2) {
     setTimeout(function() {
         card1.setAttribute("class", "card");
         card2.setAttribute("class", "card");
-    }, 700); // It takes 0.6s to finish css unmatch-shake effect 
+    }, 1200); // It takes 1s to finish css unmatch-shake effect 
 
     setTimeout(function() {
         openCards.length = 0;
-    }, 750);
+        twoCardsOpen = false;
+    }, 1300);
 }
 
 /*
