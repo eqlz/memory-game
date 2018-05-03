@@ -27,7 +27,7 @@ function randomizeCards() {
     var cardsElement = document.getElementsByClassName("card");
     for (var i = 0; i < cardsElement.length; i++) {
         // Close all cards that have been opened
-        cardsElement[i].setAttribute("class", "card");
+        cardsElement[i].setAttribute("class", "card show");
         cardsElement[i].children[0].setAttribute("class", cardsSymbol[i]);
     }
 }
@@ -130,8 +130,11 @@ function cardsMatch(openCardsArray) {
     card2.setAttribute("class", "card match");
 
     matchedCards.push(card1, card2);
-
-    openCardsArray.length = 0;
+    
+    setTimeout(function() {
+        openCardsArray.length = 0;
+    }, 1100);
+    
 }
 
 function cardsAllMatched() {
