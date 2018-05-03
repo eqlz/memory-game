@@ -3,7 +3,7 @@
  */
 document.addEventListener("DOMContentLoaded", function() {
     randomizeCards();
-})
+});
 
 var allCardsSymbol = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt",
                 "fa fa-cube", "fa fa-leaf", "fa fa-bicycle", "fa fa-bomb",
@@ -37,7 +37,7 @@ function shuffle(array) {
 
 /*
  * Game logic
- */ 
+ */
 var openCards = [];
 var matchedCards = [];
 var cardsElement = document.getElementsByClassName("card");
@@ -53,7 +53,7 @@ function cardClickEvent(card) {
         card.setAttribute("class", "card open show");
         openCards.push(card);
         if (openCards.length > 1) {
-            setTimeout(checkTwoOpenCards, 300);                
+            setTimeout(checkTwoOpenCards, 300);       
         }
     });
 }
@@ -69,7 +69,7 @@ function checkTwoOpenCards() {
         cardsMatch(card1, card2);
     }  else {
         cardsNotMatach(card1, card2);
-    }    
+    }
     
     movesIncrement();
     starRatingChange();
@@ -81,12 +81,10 @@ function cardsMatch(card1, card2) {
     card2.setAttribute("class", "card match");
 
     matchedCards.push(card1, card2);
-    console.log(matchedCards);
-    
+
     setTimeout(function() {
         openCards.length = 0;
     }, 601); // It takes 0.6s to finish css match-tada effect
-    
 }
 
 function cardsNotMatach(card1, card2) {
@@ -97,11 +95,10 @@ function cardsNotMatach(card1, card2) {
         card1.setAttribute("class", "card");
         card2.setAttribute("class", "card");
     }, 600); // It takes 0.6s to finish css unmatch-shake effect 
-    
+
     setTimeout(function() {
         openCards.length = 0;
     }, 601);
-    
 }
 
 /*
@@ -128,7 +125,6 @@ function starRatingChange() {
 
 function cardsAllMatched() {
     if (matchedCards.length == 16) {
-        
         timerStop();
         showCongratulationsPopup();
     }
