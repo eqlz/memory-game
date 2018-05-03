@@ -27,7 +27,7 @@ function randomizeCards() {
     var cardsElement = document.getElementsByClassName("card");
     for (var i = 0; i < cardsElement.length; i++) {
         // Close all cards that have been opened
-        cardsElement[i].setAttribute("class", "card show");
+        cardsElement[i].setAttribute("class", "card");
         cardsElement[i].children[0].setAttribute("class", cardsSymbol[i]);
     }
 }
