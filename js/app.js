@@ -94,11 +94,11 @@ function cardsNotMatach(card1, card2) {
     setTimeout(function() {
         card1.setAttribute("class", "card");
         card2.setAttribute("class", "card");
-    }, 600); // It takes 0.6s to finish css unmatch-shake effect 
+    }, 700); // It takes 0.6s to finish css unmatch-shake effect 
 
     setTimeout(function() {
         openCards.length = 0;
-    }, 601);
+    }, 750);
 }
 
 /*
